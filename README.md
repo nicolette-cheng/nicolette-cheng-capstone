@@ -30,13 +30,29 @@ For neurodivergent individuals:
 
 ### Tech Stack
 
-<!-- List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations. -->
+- React
+- Express
+- Client libraries:
+    - react
+    - react-router
+    - axios
+- Server libraries
+    - express
 
 ### APIs
 
-<!-- List any external sources of data that will be used in your app. -->
+- No external APIs will be used for the first sprint
 
+### 
 ### Sitemap
+- Home page
+- Task list page - add
+    - Task details page - edit
+- Rewards list page - add
+    - Rewards details page - edit
+- Register
+- Login
+
 
 <!-- List the pages of your app with brief descriptions. You can show this visually, or write it out. -->
 
@@ -60,4 +76,3 @@ For neurodivergent individuals:
 
 ## Future Implementations
 <!-- Your project will be marked based on what you committed to in the above document. Here, you can list any additional features you may complete after the MVP of your application is built, or if you have extra time before the Capstone due date. -->
-
