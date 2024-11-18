@@ -95,6 +95,34 @@ As a logged in user, I want to be able to:
 
 <!-- Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation working back from the capstone due date.  -->
 
----
+**Sprint-1**
+Complete by: Tuesday Nov 19
+
+ - [ ] **Create client**: react project with routes and boilerplate pages
+ - [ ] **Create server**: express project with routing, with placeholder 5 tasks, 5 rewards
+
+**Sprint-2**
+Complete by: Sunday Nov 24
+ - [ ] **Create migrations**
+ - [ ] **Create seeds**
+ - [ ] **Feature**/home-page
+   - [ ] GET/
+   - [ ] 
+ - [ ] **Feature**/tasks-page
+   - [ ] GET/tasks
+   - [ ] POST/tasks/:id
+   - [ ] PUT/tasks/:id
+   - [ ] DELETE/tasks/:id
+ - [ ] **Feature**/rewards-page
+   - [ ] GET/
+   - [ ] POST/
+   - [ ] PUT/
+   - [ ] DELETE/
+ - [ ] **Feature**/about-page
+   - [ ] GET/
+ - [ ] **Feature**/register-page
+   - [ ] POST/
+ - [ ] **Feature**/login-page
+
 
 ## Future Implementations
