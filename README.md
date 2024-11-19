@@ -12,7 +12,7 @@ Wabisabi is a task-management tool for diagnosed and undiagnosed neurodivergent 
 
 <!-- Why is your app needed? Give any background information around any pain points or other reasons. -->
 
-Neurodivergents are motivated by interest and/or urgency. When a task doesn't personally appeal to a neurodivergent individual it can be extremely difficult for them to accomplish said task even if it's a simple task by neurotypical standards.
+Neurodivergents are motivated by interest and/or urgency. When a task doesn't personally appeal to a neurodivergent individual it can feel debilitating for them to accomplish said task even if it's a simple task by neurotypical standards.
 
 Wabisabi is a Japanese word that describes a world view focused on celebrating the beauty of imperfection and the acceptance of impermanence. Wabisabi resonates deeply with the neurodivergent experience, to embrace neurodivergent traits that are traditionally seen as flaws such as executive dysfunction, sensory sensitivities and inattentiveness.
 
@@ -45,11 +45,13 @@ As a logged in user, I want to be able to:
 
 - React
 - Express
+- MySQL
 - Client libraries:
   - react
   - react-router
   - axios
 - Server libraries
+  - knex
   - express
 
 ### APIs
@@ -63,9 +65,9 @@ As a logged in user, I want to be able to:
 - Home page - overview
 - About page
 - Task list page - add
-  - Task details page - edit
+  - Task details modal - edit
 - Rewards list page - add
-  - Rewards details page - edit
+  - Rewards details modal - edit
 - Register
 - Login
 
@@ -103,13 +105,16 @@ As a logged in user, I want to be able to:
 Complete by: _Tuesday Nov 19_
 
 - [ ] **Create client**: react project with routes and boilerplate pages
-- [ ] **Create server**: express project with routing, with placeholder 5 tasks, 5 rewards
+- [ ] **Create server**: express project with routing and placeholder items
+- [ ] **Create notion kanban**: create tickets on notion to outline all required tasks to complete MVP
 
 **Sprint-2**
 Complete by: _Sunday Nov 24_
 
-- [ ] create and input content for tasks.json (minimum 5 tasks)
-- [ ] create and input content for rewards.json (minimum 5 tasks)
+- [ ] create migrations
+- [ ] create seeds with sample tasks and rewards (minimum 5 each)
+  - [ ] tasks table
+  - [ ] rewards table
 - [ ] create and input content for about.json (outlining overview and problem space)
 - [ ] **Feature**/home-page
   - [ ] GET/tasks
@@ -129,7 +134,7 @@ Complete by: _Sunday Nov 24_
 
 **Sprint-3**
 Complete by: _Sunday Dec 1_
-- [ ] Styling all front end pages
+- [ ] Styling all front end components
 
 ## Future Implementations
 
