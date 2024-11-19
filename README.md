@@ -58,7 +58,7 @@ As a logged in user, I want to be able to:
 
 - No external APIs will be used for the first sprint
 
-### Sitemap & End Points
+### Sitemap
 
 <!-- List the pages of your app with brief descriptions. You can show this visually, or write it out. -->
 
@@ -116,6 +116,11 @@ _----------------more to come----------------_
 
 _----------------more to come----------------_
 
+### Endpoints
+
+**GET /about**
+
+_----------------more to come----------------_
 
 ## Roadmap
 
@@ -124,8 +129,8 @@ _----------------more to come----------------_
 **Sprint-1**
 Complete by: _Wednesday Nov 20_
 
-- [ ] **Create client**: react project with routes and boilerplate pages
-- [ ] **Create server**: express project with routing and placeholder items
+- [ ] **Create local client**: react project with routes and boilerplate pages
+- [ ] **Create local server**: express project with routing and placeholder items
 - [ ] **Create notion kanban**: create tickets for notion kanban to outline all required tasks to complete MVP
 
 **Sprint-2**
