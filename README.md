@@ -33,6 +33,7 @@ For neurodivergent individuals:
 ### Features
 
 As a logged in user, I want to be able to:
+
 - create a task record and be able to assign story points, level of importance and label/categorize the task
 - update a task record and its associated details
 - create a reward record and be able to attach reward details, assign required # of story points to unlock, and label/categorize the reward
@@ -68,8 +69,6 @@ As a logged in user, I want to be able to:
 - Register
 - Login
 
-
-
 ### Mockups
 
 <!-- Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma. -->
@@ -82,47 +81,58 @@ As a logged in user, I want to be able to:
 
 <!-- List endpoints that your server will implement, including HTTP methods, parameters, and example responses. -->
 
-**GET /tasks**
-**POST /tasks/:id**
-**PUT /tasks/:id**
-**DELETE /tasks/:id**
-**GET /rewards**
-**POST /rewards/:id**
-**PUT /rewards/:id**
-**DELETE /rewards/:id**
+**---MVP---**
+
+- GET /tasks
+- POST /tasks/:id
+- GET /rewards
+- POST /rewards/:id
+
+**--NICE TO HAVES---**
+
+- PUT /tasks/:id
+- DELETE /tasks/:id
+- PUT /rewards/:id
+- DELETE /rewards/:id
 
 ## Roadmap
 
 <!-- Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation working back from the capstone due date.  -->
 
 **Sprint-1**
-Complete by: Tuesday Nov 19
+Complete by: _Tuesday Nov 19_
 
- - [ ] **Create client**: react project with routes and boilerplate pages
- - [ ] **Create server**: express project with routing, with placeholder 5 tasks, 5 rewards
+- [ ] **Create client**: react project with routes and boilerplate pages
+- [ ] **Create server**: express project with routing, with placeholder 5 tasks, 5 rewards
 
 **Sprint-2**
-Complete by: Sunday Nov 24
- - [ ] **Create migrations**
- - [ ] **Create seeds**
- - [ ] **Feature**/home-page
-   - [ ] GET/
-   - [ ] 
- - [ ] **Feature**/tasks-page
-   - [ ] GET/tasks
-   - [ ] POST/tasks/:id
-   - [ ] PUT/tasks/:id
-   - [ ] DELETE/tasks/:id
- - [ ] **Feature**/rewards-page
-   - [ ] GET/
-   - [ ] POST/
-   - [ ] PUT/
-   - [ ] DELETE/
- - [ ] **Feature**/about-page
-   - [ ] GET/
- - [ ] **Feature**/register-page
-   - [ ] POST/
- - [ ] **Feature**/login-page
+Complete by: _Sunday Nov 24_
 
+- [ ] create and input content for tasks.json (minimum 5 tasks)
+- [ ] create and input content for rewards.json (minimum 5 tasks)
+- [ ] create and input content for about.json (outlining overview and problem space)
+- [ ] **Feature**/home-page
+  - [ ] GET/tasks
+  - [ ] GET/rewards
+- [ ] **Feature**/about-page
+  - [ ] GET/about
+- [ ] **Feature**/tasks-page
+  - [ ] GET/tasks
+  - [ ] POST/tasks/:id
+  - [ ] _Optional: PUT/tasks/:id_
+  - [ ] _Optional: DELETE/tasks/:id_
+- [ ] **Feature**/rewards-page
+  - [ ] GET/rewards
+  - [ ] POST/rewards/:id
+  - [ ] _Optional: PUT/rewards/:id_
+  - [ ] _Optional: DELETE/rewards/:id_
+
+**Sprint-3**
+Complete by: _Sunday Dec 1_
+- [ ] Styling all front end pages
 
 ## Future Implementations
+
+- [ ] **Feature**/register-page
+  - [ ] POST/register
+- [ ] **Feature**/login-page
