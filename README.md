@@ -58,26 +58,45 @@ As a logged in user, I want to be able to:
 
 - No external APIs will be used for the first sprint
 
-### Sitemap
+### Sitemap & End Points
 
 <!-- List the pages of your app with brief descriptions. You can show this visually, or write it out. -->
 
-- Home page - overview
-- About page
-- Task list page - add
-  - Task details modal - edit
-- Rewards list page - add
-  - Rewards details modal - edit
-- Register
-- Login
+**_MVP_**
+
+| Request type | Path/End point   | Page title       | Content                                |
+| ------------ | ---------------- | ---------------- | -------------------------------------- |
+| GET          | /home            | home             | analytics of tasks and rewards         |
+| GET          | /about           | about            | about app, about founder               |
+| GET          | /tasks           | tasks management | tasks list, tasks progress tracker     |
+| GET          | /tasks/:id       | task details     | task details                           |
+| POST         | /tasks/:id/add   | add task         | page to add task details               |
+| GET          | /rewards         | rewards          | rewards list, add form                 |
+| POST         | /rewards/:id/add | rewards          | add reward form (same page as rewards) |
+| GET          | /rewards/:id     | rewards details  | reward details                         |
+| GET          | /how             | how-to           | instruction on how app works           |
+
+**_nice to haves_**
+| Request type | path                | page title    | content                      |
+| ------------ | ------------------- | ------------- | ---------------------------- |
+| PUT          | /tasks/:id/edit     | update task   | page to update task details  |
+| DELETE       | /tasks/:id/delete   | delete task   | modal to delete task details |
+| PUT          | /rewards/:id/edit   | update reward | page to update task details  |
+| DELETE       | /rewards/:id/delete | delete reward | modal to delete task details |
+| POST         | /register           | register      | form to register user        |
+| POST         | /login              | login         | form to login                |
 
 ### Mockups
 
 <!-- Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma. -->
 
+_----------------TBC----------------_
+
 ### Data
 
 <!-- Describe your data and the relationships between the data points. You can show this visually using diagrams, or write it out.  -->
+
+_----------------TBC----------------_
 
 ### Endpoints
 
@@ -89,6 +108,8 @@ As a logged in user, I want to be able to:
 - POST /tasks/:id
 - GET /rewards
 - POST /rewards/:id
+- GET /about
+- GET /instructions
 
 **--NICE TO HAVES---**
 
@@ -134,6 +155,7 @@ Complete by: _Sunday Nov 24_
 
 **Sprint-3**
 Complete by: _Sunday Dec 1_
+
 - [ ] Styling all front end components
 
 ## Future Implementations
