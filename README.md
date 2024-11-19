@@ -64,17 +64,17 @@ As a logged in user, I want to be able to:
 
 **_MVP_**
 
-| Request type | Path/End point   | Page title       | Content                                |
-| ------------ | ---------------- | ---------------- | -------------------------------------- |
-| GET          | /home            | home             | analytics of tasks and rewards         |
-| GET          | /about           | about            | about app, about founder               |
-| GET          | /tasks           | tasks management | tasks list, tasks progress tracker     |
-| GET          | /tasks/:id       | task details     | task details                           |
-| POST         | /tasks/:id/add   | add task         | page to add task details               |
-| GET          | /rewards         | rewards          | rewards list, add form                 |
-| POST         | /rewards/:id/add | rewards          | add reward form (same page as rewards) |
-| GET          | /rewards/:id     | rewards details  | reward details                         |
-| GET          | /how             | how-to           | instruction on how app works           |
+| Request type | Path/End point   | Page title       | Content                            |
+| ------------ | ---------------- | ---------------- | ---------------------------------- |
+| GET          | /home            | home             | analytics of tasks and rewards     |
+| GET          | /about           | about            | about app, about founder           |
+| GET          | /tasks           | tasks management | tasks list, tasks progress tracker |
+| GET          | /tasks/:id       | task details     | task details                       |
+| POST         | /tasks/:id/add   | add task         | page to add task details           |
+| GET          | /rewards         | rewards          | rewards list, add form             |
+| POST         | /rewards/:id/add | add reward       | add reward form                    |
+| GET          | /rewards/:id     | rewards details  | reward details                     |
+| GET          | /how             | how-to           | instruction on how app works       |
 
 **_nice to haves_**
 | Request type | path                | page title    | content                      |
@@ -90,44 +90,43 @@ As a logged in user, I want to be able to:
 
 <!-- Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma. -->
 
-_----------------TBC----------------_
+#### Home Page
+![](/public/assets/ProposalMocks/homepage-mock.png)
+
+#### About Page
+![](/public/assets/ProposalMocks/aboutpage-mock.png)
+
+#### Tasks Page
+![](/public/assets/ProposalMocks/taskspage-mock.png)
+
+#### Tasks Add Page
+![](/public/assets/ProposalMocks/tasksaddpage-mock.png)
+
+#### Rewards Page
+![](/public/assets/ProposalMocks/rewardspage-mock.png)
+
+#### Rewards Add Page
+![](/public/assets/ProposalMocks/rewardsaddpage-mock.png)
+
+_----------------more to come----------------_
 
 ### Data
 
 <!-- Describe your data and the relationships between the data points. You can show this visually using diagrams, or write it out.  -->
 
-_----------------TBC----------------_
+_----------------more to come----------------_
 
-### Endpoints
-
-<!-- List endpoints that your server will implement, including HTTP methods, parameters, and example responses. -->
-
-**---MVP---**
-
-- GET /tasks
-- POST /tasks/:id
-- GET /rewards
-- POST /rewards/:id
-- GET /about
-- GET /instructions
-
-**--NICE TO HAVES---**
-
-- PUT /tasks/:id
-- DELETE /tasks/:id
-- PUT /rewards/:id
-- DELETE /rewards/:id
 
 ## Roadmap
 
 <!-- Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation working back from the capstone due date.  -->
 
 **Sprint-1**
-Complete by: _Tuesday Nov 19_
+Complete by: _Wednesday Nov 20_
 
 - [ ] **Create client**: react project with routes and boilerplate pages
 - [ ] **Create server**: express project with routing and placeholder items
-- [ ] **Create notion kanban**: create tickets on notion to outline all required tasks to complete MVP
+- [ ] **Create notion kanban**: create tickets for notion kanban to outline all required tasks to complete MVP
 
 **Sprint-2**
 Complete by: _Sunday Nov 24_
@@ -137,17 +136,19 @@ Complete by: _Sunday Nov 24_
   - [ ] tasks table
   - [ ] rewards table
 - [ ] create and input content for about.json (outlining overview and problem space)
-- [ ] **Feature**/home-page
+- [ ] **Feature**/home
   - [ ] GET/tasks
   - [ ] GET/rewards
-- [ ] **Feature**/about-page
+- [ ] **Feature**/about
   - [ ] GET/about
-- [ ] **Feature**/tasks-page
+- [ ] **Feature**/how
+  - [ ] GET/how
+- [ ] **Feature**/tasks
   - [ ] GET/tasks
   - [ ] POST/tasks/:id
   - [ ] _Optional: PUT/tasks/:id_
   - [ ] _Optional: DELETE/tasks/:id_
-- [ ] **Feature**/rewards-page
+- [ ] **Feature**/rewards
   - [ ] GET/rewards
   - [ ] POST/rewards/:id
   - [ ] _Optional: PUT/rewards/:id_
@@ -157,9 +158,11 @@ Complete by: _Sunday Nov 24_
 Complete by: _Sunday Dec 1_
 
 - [ ] Styling all front end components
+- [ ] Project wide testing
 
 ## Future Implementations
 
 - [ ] **Feature**/register-page
   - [ ] POST/register
 - [ ] **Feature**/login-page
+  - [ ] POST/login
