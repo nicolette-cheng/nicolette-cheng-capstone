@@ -119,6 +119,30 @@ _----------------more to come----------------_
 ### Endpoints
 
 **GET /about**
+- Get about: information about the app and about the founder
+
+Response:
+```
+[
+  {
+    "id": 1,
+    "about": "wabisabi",
+    "description": "Wabisabi is a task-management tool for diagnosed and undiagnosed neurodivergent individuals to keep track of and accomplish tasks in a way that uniquely motivates themself. The goal is to enable users to thrive in their individuality while existing in a neurotypical space.
+    
+    Neurodivergents are motivated by interest and/or urgency. When a task doesn't personally appeal to a neurodivergent individual it can feel debilitating for them to accomplish said task even if it's a simple task by neurotypical standards.
+    
+    Wabisabi is a Japanese word that describes a world view focused on celebrating the beauty of imperfection and the acceptance of impermanence. Wabisabi resonates deeply with the neurodivergent experience, to embrace neurodivergent traits that are traditionally seen as flaws such as executive dysfunction, sensory sensitivities and inattentiveness.
+    
+    The connection between wabisabi and neurodivergence cultivates a mindset that values authenticity, self-compassion and the richness of diverse experiences. Rather than considering neurodivergence as something to fix, the focus is shifted to appreciate the inherent beauty of everyone's unique existence."
+  },
+  {
+    "Nicolette Cheng (Nico) is the founder of wabisabi. At age 27, she was late-diagnosed for ADHD and had been struggling with the diagnosis and how to cope with adulthood as a neurodivergent individual. Through educating herself on the neurodivergence spectrum and better understanding her own neurodivergence, she understand there is a big hurdle to overcome regarding motivating neurodivergents. 
+    
+    After spending a few years in sales and feeling burnt out from the neverending sales hustle, she pivoted to upskill and learned to code at BrainStation through the Software Development bootcamp. With an understanding of what it takes mentally to be consistent and accountable in sales, and experienced the high velocity to learn software development in a condensed time frame; Nico hopes to share her knowledge and experience as a high functioning neurodivergent through building and nurturing the wabisabi space to enable other neurodivergent folks to better their quality of living."
+  }
+]
+```
+
 
 _----------------more to come----------------_
 
