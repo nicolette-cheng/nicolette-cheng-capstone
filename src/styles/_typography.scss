@@ -1,0 +1,53 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// TYPEFACE & WEIGHTS
+
+@font-face {
+  font-family: "Reddit Mono";
+  src: url("/assets/fonts/RedditMono-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Reddit Mono";
+  src: url("assets/fonts/RedditMono-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+// REGULAR / DEFAULT
+@font-face {
+  font-family: "Reddit Mono";
+  src: url("assets/fonts/RedditMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Reddit Mono";
+  src: url("assets/fonts/RedditMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Reddit Mono";
+  src: url("assets/fonts/RedditMono-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Reddit Mono";
+  src: url("assets/fonts/RedditMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Reddit Mono";
+  src: url("assets/fonts/RedditMono-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Reddit Mono";
+  src: url("assets/fonts/RedditMono-Black.ttf") format("truetype");
+  font-weight: 900;
+}
