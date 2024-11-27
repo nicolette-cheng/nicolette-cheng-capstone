@@ -24,3 +24,23 @@
 body {
   margin: 0;
 }
+
+input,
+textarea,
+select, ::placeholder {
+  font-family: "Reddit Mono", sans-serif;
+}
+
+a,
+label,
+button {
+  text-decoration: none;
+}
+
+html, body, h1, h2, h3, h4, p, ul, li, input, textarea {
+  font-family: 'Reddit Mono';
+  box-sizing: border-box;
+  margin: 0;
+  padding-block: 0;
+  padding-inline: 0;
+}
