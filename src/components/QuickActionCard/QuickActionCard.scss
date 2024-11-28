@@ -1,0 +1,54 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quick-action__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $mint;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  gap: 1rem;
+  color: $white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background: $mint-hover;
+    color: $black;
+    transform: scale(1.02);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    img {
+      width: 24px;
+      height: 24px;
+      transform: scale(1.02);
+      filter: invert(0);
+    }
+  }
+
+  &-title {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-icon {
+    color: $white;
+  }
+}
