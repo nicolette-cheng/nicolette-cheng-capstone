@@ -56,3 +56,28 @@ textarea {
   padding-block: 0;
   padding-inline: 0;
 }
+
+//TYPE STYLES
+h1 {
+  @include page-header;
+}
+
+h2 {
+  @include subheader;
+}
+
+h3 {
+  @include labels-links-buttons;
+}
+
+h4 {
+  @include table-header;
+}
+
+p {
+  @include body;
+}
+
+html {
+  height: 100vh;
+}
