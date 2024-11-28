@@ -1,9 +1,9 @@
 // import React, { useState, useEffect } from "react";
 import "./QuickActionCard.scss";
 
-export default function QuickActionCard({ title, icon, description }) {
+export default function QuickActionCard({ title, icon, description, action }) {
   return (
-    <div className="quick-action__card">
+    <div className="quick-action__card" onClick={action}>
       <div className="quick-action__card-title">
         <img src={icon} alt="action icon" className="quick-action__card-icon"/>
         <h3>{title}</h3>
