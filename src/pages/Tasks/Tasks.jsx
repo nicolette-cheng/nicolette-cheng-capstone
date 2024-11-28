@@ -24,8 +24,8 @@ export default function Tasks() {
   return (
     <>
       <TasksList
-        taskItems={tasksItems}
-        generatetTaskItem={generatetTaskItems}
+        taskItems={taskItems}
+        generatetTaskItems={generatetTaskItems}
       />
     </>
   );
