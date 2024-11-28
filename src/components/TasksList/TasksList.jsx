@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import TaskCard from "../TaskCard/TaskCard";
 import "./TasksList.scss";
 
 export default function TasksList({ taskItems, generateTaskItems }) {
@@ -24,5 +25,18 @@ export default function TasksList({ taskItems, generateTaskItems }) {
     setSearch(event.target.value);
   };
 
-  return <></>;
+  return (
+    <>
+      <div>
+        <h1>search and page header</h1>
+        <ul className="tasks-list">
+          {filteredTasks.map((task) => (
+            <li key={task.id}>
+              <TaskCard task={task} generateTaskItems={generateTaskItems} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
 }
