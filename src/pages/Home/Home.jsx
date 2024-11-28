@@ -5,28 +5,8 @@ import addIcon from "/assets/icons/add.svg";
 import rewardIcon from "/assets/icons/trophy.svg";
 import progressIcon from "/assets/icons/progress.svg";
 import glimmerIcon from "/assets/icons/sparkle.svg";
-const apiUrl = import.meta.env.VITE_API_URL;
-
-import axios from "axios";
-import { useState, useEffect } from "react";
 
 export default function Home() {
-  const [taskItems, setTaskItems] = useState([]);
-
-  useEffect(() => {
-    generatetTaskItems();
-  }, []);
-
-  const generatetTaskItems = async () => {
-    try {
-      const { data } = await axios.get(`${apiUrl}/tasks`);
-      setTaskItems(data);
-      //   console.log(data);
-    } catch (error) {
-      console.error("Error fetching tasks data:", error);
-    }
-  };
-
   const today = new Date();
   const navigate = useNavigate();
 
@@ -68,7 +48,7 @@ export default function Home() {
           title="daily glimmer"
           icon={glimmerIcon}
           description={trackProgDes}
-          action={() => navigate("/glimmer")}
+          action={() => navigate("/glimmers")}
           className="quick-actions__card"
         />
       </main>
