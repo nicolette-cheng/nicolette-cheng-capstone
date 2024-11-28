@@ -3,43 +3,38 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .quick-action__card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $mint;
+  background-color: $mint-hover;
   border-radius: 0.5rem;
+  width: 20rem;
+  height: 12rem;
   padding: 1rem;
   gap: 1rem;
-  color: $white;
+  color: $black;
   transition: all 0.3s ease;
   cursor: pointer;
 
   img {
     width: 24px;
     height: 24px;
-    filter: invert(1);
     transition: all 0.3s ease;
   }
 
   &:hover {
-    background: $mint-hover;
-    color: $black;
-    transform: scale(1.02);
+    background: $mint;
+    color: $white;
+    transform: scale(1.05);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     img {
       width: 24px;
       height: 24px;
-      transform: scale(1.02);
-      filter: invert(0);
+      transform: scale(1.05);
+      filter: invert(1);
     }
   }
 
