@@ -1,14 +1,13 @@
-import "./Search.scss";
-import { Link } from "react-router-dom";
+import "./SearchHeader.scss";
 
-export default function Search({
+export default function SearchHeader({
   title,
   buttonLink,
   buttonTitle,
   handleSearchInput,
 }) {
   return (
-    <div>
+    <div className="search-header">
       <h1>{title}</h1>
       <form action="">
         <input
@@ -16,7 +15,6 @@ export default function Search({
           placeholder="Search..."
           onChange={handleSearchInput}
         />
-        <Link to={buttonLink}>{buttonTitle}</Link>
       </form>
     </div>
   );
