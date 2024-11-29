@@ -10,14 +10,18 @@ export default function TaskCard({ task, generateTaskItem }) {
       <div className="task-card">
         <h3>{task.task_name}</h3>
         <div className="task-card__stars-wrap">
-          <p>{task.stars_required}</p>
           <img
             src={starIcon}
             alt="star icon"
             className="task-card__stars-icon"
           />
+          <p>{task.stars_required}</p>
         </div>
-        <img src={caretRightIcon} alt="arrow pointing right icon" className="task-card__icon-caret"/>
+        <img
+          src={caretRightIcon}
+          alt="arrow pointing right icon"
+          className="task-card__icon-caret"
+        />
       </div>
     </Link>
   );
