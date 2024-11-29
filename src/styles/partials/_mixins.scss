@@ -89,6 +89,15 @@
   height: auto;
 }
 
+// icon
+@mixin icon {
+  filter: invert(21%) sepia(13%) saturate(163%) hue-rotate(149deg)
+    brightness(91%) contrast(93%);
+  width: 1.5rem;
+
+  @content;
+}
+
 // avatar
 @mixin avatar {
   width: 2.5rem;
@@ -100,8 +109,4 @@
   background-color: $white;
 
   @content;
-}
-
-@mixin icon {
-  color: $black;
 }
