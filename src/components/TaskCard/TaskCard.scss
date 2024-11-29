@@ -3,3 +3,32 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 
+.task-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr;
+
+  &__stars-wrap {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__stars-icon {
+    @include icon {
+      transition: all 0.3s ease;
+
+      &:hover {
+        filter: invert(86%) sepia(17%) saturate(343%) hue-rotate(340deg)
+          brightness(83%) contrast(82%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  &__icon-caret {
+    filter: opacity(0);
+
+    &:hover {
+      filter: opacity(1);
+    }
+  }
+}
