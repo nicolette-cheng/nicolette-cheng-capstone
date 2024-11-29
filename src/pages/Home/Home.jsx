@@ -55,7 +55,7 @@ export default function Home() {
       <div className="home-headers__wrap">
         <h2>today is</h2>
         <h1 className="home__header">{formattedDate}</h1>
-        <h3>it's a good day to believe in yourself</h3>
+        <h3>it's a good day to believe in yourself, how would you like to start?</h3>
       </div>
     </div>
   );
