@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TaskCard from "../TaskCard/TaskCard";
+import SearchHeader from "../Search/SearchHeader";
 import "./TasksList.scss";
 
 export default function TasksList({ taskItems, generateTaskItems }) {
@@ -27,8 +28,15 @@ export default function TasksList({ taskItems, generateTaskItems }) {
 
   return (
     <>
-      <div>
-        <h1>search and page header</h1>
+      <div className="tasks">
+        <div>
+          <SearchHeader
+            title="tasks"
+            buttonTitle="+ add new task"
+            buttonLink="/tasks/add"
+            handleSearchInput={handleSearchInput}
+          />
+        </div>
         <ul className="tasks-list">
           {filteredTasks.map((task) => (
             <li key={task.id}>
