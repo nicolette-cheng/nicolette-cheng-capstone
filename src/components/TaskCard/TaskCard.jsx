@@ -1,16 +1,24 @@
 import "./TaskCard.scss";
+import { Link, Links } from "react-router-dom";
 import React from "react";
-import { Link } from "react-router-dom";
-import caretRightIcon from "/assets/icons/caret-double-right.svg"
+import starIcon from "/assets/icons/shooting-star.svg";
+import caretRightIcon from "/assets/icons/caret-double-right.svg";
 
 export default function TaskCard({ task, generateTaskItem }) {
   return (
-    <>
-      <div>
-        <p>{task.task_name}</p>
-        <p>{task.stars_required}</p>
-        <img src={caretRightIcon} alt="right arrow" />
+    <Link to={`/tasks/${task.id}`}>
+      <div className="task-card">
+        <h3>{task.task_name}</h3>
+        <div className="task-card__stars-wrap">
+          <p>{task.stars_required}</p>
+          <img
+            src={starIcon}
+            alt="star icon"
+            className="task-card__stars-icon"
+          />
+        </div>
+        <img src={caretRightIcon} alt="arrow pointing right icon" className="task-card__icon-caret"/>
       </div>
-    </>
+    </Link>
   );
 }
