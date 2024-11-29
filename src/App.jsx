@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Home from "./pages/HomePage/Home";
+import Home from "./pages/Home/Home.jsx";
+import Tasks from "./pages/Tasks/Tasks.jsx";
 import React from "react";
-import { useState } from "react";
 import "./App.scss";
 
 function App() {
@@ -12,6 +12,15 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/tasks" element={<Tasks />} />
+          {/* <Route path="/tasks/:id" element={<TaskDetails />} /> */}
+          {/* <Route path="/tasks/add" element={<TaskAdd />} /> */}
+          {/* <Route path="/rewards" element={<Rewards />} /> */}
+          {/* <Route path="/rewards/:id" element={<RewardDetails />} /> */}
+          {/* <Route path="/rewards/add" element={<RewardAdd />} /> */}
+          {/* <Route path="/glimmers" element={<Glimmers />} /> */}
+          {/* <Route path="/glimmers/add" element={<GlimmerAdd />} /> */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </>
