@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home.jsx";
 import Tasks from "./pages/Tasks/Tasks.jsx";
+import TaskDetails from "./pages/TaskDetails/TaskDetails.jsx";
 import React from "react";
 import "./App.scss";
 
@@ -13,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tasks" element={<Tasks />} />
-          {/* <Route path="/tasks/:id" element={<TaskDetails />} /> */}
+          <Route path="/tasks/:id" element={<TaskDetails />} />
           {/* <Route path="/tasks/add" element={<TaskAdd />} /> */}
           {/* <Route path="/rewards" element={<Rewards />} /> */}
           {/* <Route path="/rewards/:id" element={<RewardDetails />} /> */}
