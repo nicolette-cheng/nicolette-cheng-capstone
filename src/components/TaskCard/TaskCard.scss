@@ -6,6 +6,18 @@
 .task-card {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr;
+  cursor: pointer;
+
+  &:hover {
+    .task-card__stars-icon {
+      filter: $star-hover;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .task-card__icon-caret {
+      filter: opacity(1);
+    }
+  }
 
   &__stars-wrap {
     display: flex;
@@ -16,20 +28,12 @@
   &__stars-icon {
     @include icon {
       transition: all 0.3s ease;
-
-      &:hover {
-        filter: invert(86%) sepia(17%) saturate(343%) hue-rotate(340deg)
-          brightness(83%) contrast(82%);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
     }
   }
 
   &__icon-caret {
-    filter: opacity(0);
-
-    &:hover {
-      filter: opacity(1);
+    @include icon {
+      filter: opacity(0);
     }
   }
 }
