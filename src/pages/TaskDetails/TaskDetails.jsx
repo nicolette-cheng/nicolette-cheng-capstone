@@ -2,7 +2,10 @@ import "./TaskDetails.scss";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 import DetailsHeader from "../../components/DetailsHeader/DetailsHeader";
+import DetailsSpecs from "../../components/DetailsSpecs/DetailsSpecs";
+import DetailsDescription from "../../components/DetailsDescription/DetailsDescription.jsx";
 
 const { VITE_API_URL } = import.meta.env;
 
@@ -36,14 +39,25 @@ export default function TaskDetails() {
     currentTask;
 
   return (
-    <div className="task-details">
-      <div className="task-details__title-overlay">
+    <main className="task-details">
+      <div className="task-details__header">
         <DetailsHeader
           title={task_name}
           pathBack="/tasks"
           pathEdit={`/task/${id}`}
+          // pathDelete={``}
         />
       </div>
-    </div>
+      <div className="task-details__description">
+        <DetailsDescription description={description} />
+      </div>
+      <div className="task-details__specs">
+        <DetailsSpecs
+          stars={stars_required}
+          created={created_at}
+          updated={updated_at}
+        />
+      </div>
+    </main>
   );
 }
