@@ -110,3 +110,9 @@
 
   @content;
 }
+
+// divider
+@mixin divider {
+  border-top: 0.0625rem solid $black;
+  margin: 0;
+}
