@@ -1,0 +1,22 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.details-title {
+  &__card {
+    display: flex;
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__icon-back {
+    @include icon;
+  }
+
+  &__header {
+    color: $green;
+  }
+}
