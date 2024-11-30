@@ -6,17 +6,81 @@
 .details-title {
   &__card {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  &__wrapper {
+  &__wrapper-title {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
   }
 
   &__icon-back {
-    @include icon;
+    stroke: $black;
+
+    &:hover {
+      transform: scale(1.5);
+      stroke: $mint;
+    }
+  }
+
+  &__wrapper-links {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  &__link-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: $mint;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    &:hover {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+      .details-title__icon-edit {
+        stroke: $black;
+      }
+
+      .details-title__icon-delete {
+        stroke: $black;
+      }
+    }
+  }
+
+  &__link-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: $blue;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    &:hover {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+      .details-title__icon-edit {
+        stroke: $black;
+      }
+    }
+  }
+
+  &__icon-edit {
+    stroke: $white;
+  }
+
+  &__icon-delete {
+    stroke: $white;
   }
 
   &__header {
-    color: $green;
+    color: $black;
   }
 }
