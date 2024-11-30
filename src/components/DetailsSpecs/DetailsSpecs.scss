@@ -1,0 +1,21 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.details-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  &__wrapper-icon {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__icon {
+    @include icon {
+      width: 2rem;
+    }
+  }
+}
