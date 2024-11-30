@@ -2,6 +2,7 @@ import "./TaskDetails.scss";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import DetailsHeader from "../../components/DetailsHeader/DetailsHeader";
 
 const { VITE_API_URL } = import.meta.env;
 
@@ -13,7 +14,7 @@ export default function TaskDetails() {
   async function getTask() {
     try {
       const response = await axios.get(`${VITE_API_URL}/tasks/${id}`);
-    //   console.log(response.data);
+      //   console.log(response.data);
       setCurrentTask(response.data);
     } catch (error) {
       if (error.status === 404) {
@@ -36,7 +37,13 @@ export default function TaskDetails() {
 
   return (
     <div className="task-details">
-      <div className="task-details__title-overlay"></div>
+      <div className="task-details__title-overlay">
+        <DetailsHeader
+          title={task_name}
+          pathBack="/tasks"
+          pathEdit={`/task/${id}`}
+        />
+      </div>
     </div>
   );
 }
