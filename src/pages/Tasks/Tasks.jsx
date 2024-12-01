@@ -1,4 +1,5 @@
 import TasksList from "../../components/TasksList/TasksList";
+import SearchHeader from "../../components/SearchHeader/SearchHeader";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 import axios from "axios";
@@ -6,27 +7,45 @@ import { useState, useEffect } from "react";
 
 export default function Tasks() {
   const [taskItems, setTaskItems] = useState([]);
+  const [filteredTasks, setFilteredTasks] = useState(taskItems);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    generatetTaskItems();
+    generateTaskItems();
   }, []);
 
-  const generatetTaskItems = async () => {
+  const generateTaskItems = async () => {
     try {
       const { data } = await axios.get(`${apiUrl}/tasks`);
       setTaskItems(data);
-      // console.log(data);
+      setFilteredTasks(data);
     } catch (error) {
       console.error("Error fetching tasks data:", error);
     }
   };
 
+  const handleSearchInput = (event) => {
+    // event.preventDefault();
+    const searchValue = event.target.value.toLowerCase();
+    setSearch(searchValue);
+
+    const filtered = taskItems.filter((item) =>
+      item.task_name.toLowerCase().includes(searchValue) ||
+      item.description.toLowerCase().includes(searchValue)
+    );
+    setFilteredTasks(filtered);
+  };
+
   return (
-    <>
-      <TasksList
-        taskItems={taskItems}
-        generatetTaskItems={generatetTaskItems}
+    <main>
+      <SearchHeader
+        title="tasks"
+        handleSearchInput={handleSearchInput}
       />
-    </>
+      <TasksList
+        taskItems={filteredTasks}
+        generateTaskItems={generateTaskItems}
+      />
+    </main>
   );
 }
