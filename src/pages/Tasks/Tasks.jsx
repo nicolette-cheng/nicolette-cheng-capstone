@@ -1,5 +1,6 @@
 import TasksList from "../../components/TasksList/TasksList";
 import SearchHeader from "../../components/SearchHeader/SearchHeader";
+import "./Tasks.scss";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 import axios from "axios";
@@ -29,23 +30,25 @@ export default function Tasks() {
     const searchValue = event.target.value.toLowerCase();
     setSearch(searchValue);
 
-    const filtered = taskItems.filter((item) =>
-      item.task_name.toLowerCase().includes(searchValue) ||
-      item.description.toLowerCase().includes(searchValue)
+    const filtered = taskItems.filter(
+      (item) =>
+        item.task_name.toLowerCase().includes(searchValue) ||
+        item.description.toLowerCase().includes(searchValue)
     );
     setFilteredTasks(filtered);
   };
 
   return (
-    <main>
-      <SearchHeader
-        title="tasks"
-        handleSearchInput={handleSearchInput}
-      />
-      <TasksList
-        taskItems={filteredTasks}
-        generateTaskItems={generateTaskItems}
-      />
+    <main className="tasks">
+      <div className="tasks__header-container">
+        <SearchHeader title="tasks" handleSearchInput={handleSearchInput} buttonLink="/tasks/add" />
+      </div>
+      <div>
+        <TasksList
+          taskItems={filteredTasks}
+          generateTaskItems={generateTaskItems}
+        />
+      </div>
     </main>
   );
 }

@@ -11,24 +11,12 @@ export default function TasksList({ taskItems, generateTaskItems }) {
   }, [search, taskItems]);
 
   return (
-    <>
-      <div className="tasks">
-        {/* <div>
-          <SearchHeader
-            title="tasks"
-            buttonTitle="+ add new task"
-            buttonLink="/tasks/add"
-            handleSearchInput={handleSearchInput}
-          />
-        </div> */}
-        <ul className="tasks-list">
-          {filteredTasks.map((task) => (
-            <li key={task.id}>
-              <TaskCard task={task} generateTaskItems={generateTaskItems} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+    <ul className="tasks-list">
+      {filteredTasks.map((task) => (
+        <li key={task.id}>
+          <TaskCard task={task} generateTaskItems={generateTaskItems} />
+        </li>
+      ))}
+    </ul>
   );
 }
