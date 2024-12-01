@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home.jsx";
 import Tasks from "./pages/Tasks/Tasks.jsx";
 import TaskDetails from "./pages/TaskDetails/TaskDetails.jsx";
+import TaskAdd from "./pages/TaskAdd/TaskAdd.jsx";
 import React from "react";
 import "./App.scss";
 
@@ -15,7 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/tasks/:id" element={<TaskDetails />} />
-          {/* <Route path="/tasks/add" element={<TaskAdd />} /> */}
+          <Route path="/tasks/add" element={<TaskAdd />} />
           {/* <Route path="/rewards" element={<Rewards />} /> */}
           {/* <Route path="/rewards/:id" element={<RewardDetails />} /> */}
           {/* <Route path="/rewards/add" element={<RewardAdd />} /> */}
