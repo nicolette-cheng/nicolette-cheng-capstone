@@ -2,8 +2,6 @@ import "./SearchHeader.scss";
 
 export default function SearchHeader({
   title,
-  buttonLink,
-  buttonTitle,
   handleSearchInput,
 }) {
   return (
