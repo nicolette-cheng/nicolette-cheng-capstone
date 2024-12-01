@@ -1,19 +1,22 @@
+import { Link } from "react-router-dom";
 import "./SearchHeader.scss";
+import { Plus } from "lucide-react";
 
-export default function SearchHeader({
-  title,
-  handleSearchInput,
-}) {
+export default function SearchHeader({ title, handleSearchInput, buttonLink }) {
   return (
     <div className="search-header">
       <h1>{title}</h1>
-      <form action="">
+      <div className="search-header__wrapper">
         <input
           type="search"
           placeholder="Search..."
           onChange={handleSearchInput}
         />
-      </form>
+        <Link to={buttonLink} className="search-header__button">
+          <Plus />
+          <h3>add new</h3>
+        </Link>
+      </div>
     </div>
   );
 }
