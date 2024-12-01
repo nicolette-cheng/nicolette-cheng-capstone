@@ -13,7 +13,7 @@ export default function TaskCard({ task, generateTaskItem }) {
           <img
             src={starIcon}
             alt="star icon"
-            className="task-card__stars-icon"
+            className="task-card__icon-stars"
           />
           <p>{task.stars_required}</p>
         </div>
