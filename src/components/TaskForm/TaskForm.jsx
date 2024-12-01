@@ -39,9 +39,69 @@ export default function TaskForm() {
 
   useEffect(() => {
     if (isEditMode) {
-      axios.get(`${apiUrl}/tasks/${id}`);
+      axios
+        .get(`${apiUrl}/tasks/${id}`)
+        .then((response) => {
+          const taskItem = response.data;
+
+          let reward_id = taskItem.reward_id;
+
+          if (!reward_id && taskItem.reward_id) {
+            const selectedReward = rewards.find(
+              (reward) => reward.reward_name === taskItem.reward_name
+            );
+          }
+
+          setFormData({
+            task_name: taskItem.task_name,
+            description: taskItem.description,
+            stars_required: taskItem.stars_required,
+            reward: taskItem.reward_name,
+            reward_id: reward_id,
+          });
+        })
+        .catch((error) => {
+          if (error.response?.status === 404) {
+            navigate("/tasks");
+          }
+        });
     }
-  });
+  }, [isEditMode, id, rewards]);
+
+  useEffect(() => {
+    fetchRewards();
+  }, []);
+  const fetchRewards = async () => {
+    try {
+      const { data } = axios.get(`${apiUrl}/rewards`);
+      setRewards(data);
+    } catch (error) {
+      console.error("Error fetching rewards data:", error);
+    }
+  };
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (error[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+
+    if (name === "reward") {
+      const selectedReward = rewards.find(
+        (reward) => reward.reward_name === value
+      );
+
+      setFormData((prev) => ({
+        ...prev,
+        reward_id: selectedReward ? selectedReward.id : "",
+      }));
+    }
+  };
+
+  
 
   return (
     <form onSubmit={handleSubmit}>
