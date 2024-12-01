@@ -177,7 +177,80 @@ export default function TaskForm() {
         <h1>{isEditMode ? "edit task" : "add new task"}</h1>
       </legend>
 
+      <section>
+        <h2>task details</h2>
+        {taskFields.map((field) => {
+          let inputElement = null;
 
+          // if field is reward; rendar options dropdown
+          if (field.name === "reward") {
+            inputElement = (
+              <select
+                name={field.name}
+                id={field.name}
+                value={formData[field.name]}
+                onChange={handleChange}
+                className={`input-control ${
+                  errors[field.name] ? "task-form__input-control--error" : ""
+                }`}
+              >
+                <option value="">Select {field.label}</option>
+                {rewards.map((reward) => (
+                  <option value={reward.reward_name} key={reward.id}>
+                    {reward.reward_name}
+                  </option>
+                ))}
+              </select>
+            );
+            // if description; render textarea
+          } else if (field.name === "description") {
+            inputElement = (
+              <textarea
+                name={field.name}
+                id={field.name}
+                value={formData[field.name]}
+                onChange={handleChange}
+                className={`input-control ${
+                  errors[field.name] ? "task-form__input-control--error" : ""
+                }`}
+                placeholder={field.label}
+              />
+            );
+          }
+          // other fields w/normal text input
+          else {
+            inputElement = (
+              <input
+                type="text"
+                id={field.name}
+                name={field.name}
+                value={formData[field.name]}
+                onChange={handleChange}
+                className={`input-control ${
+                  errors[field.name] ? "task-form__input-control--error" : ""
+                }`}
+                placeholder={field.label}
+              />
+            );
+          }
+
+          return (
+            <div className="task-form__input-field" key={field.name}>
+              <label htmlFor={field.name} className="task-form__input-label">
+                {field.label}
+              </label>
+              {inputElement}
+              {""}
+              {errors[field.name] && (
+                <span className="task-form__error-msg">
+                  <OctagonAlertIcon />
+                  {errors[field.name]}
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </section>
     </form>
   );
 }
