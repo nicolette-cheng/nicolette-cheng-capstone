@@ -25,7 +25,7 @@ export default function Tasks() {
   };
 
   const handleSearchInput = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     const searchValue = event.target.value.toLowerCase();
     setSearch(searchValue);
 
