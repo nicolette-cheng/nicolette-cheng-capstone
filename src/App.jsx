@@ -5,6 +5,7 @@ import Tasks from "./pages/Tasks/Tasks.jsx";
 import TaskDetails from "./pages/TaskDetails/TaskDetails.jsx";
 import TaskAdd from "./pages/TaskAdd/TaskAdd.jsx";
 import Rewards from "./pages/Rewards/Rewards.jsx";
+import RewardDetails from "./pages/RewardDetails/RewardDetails.jsx";
 import React from "react";
 import "./App.scss";
 
@@ -19,7 +20,7 @@ function App() {
           <Route path="/tasks/:id" element={<TaskDetails />} />
           <Route path="/tasks/add" element={<TaskAdd />} />
           <Route path="/rewards" element={<Rewards />} />
-          {/* <Route path="/rewards/:id" element={<RewardDetails />} /> */}
+          <Route path="/rewards/:id" element={<RewardDetails />} />
           {/* <Route path="/rewards/add" element={<RewardAdd />} /> */}
           {/* <Route path="/glimmers" element={<Glimmers />} /> */}
           {/* <Route path="/glimmers/add" element={<GlimmerAdd />} /> */}
