@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import RewardCard from "../RewardCard/RewardCard";
 import "./RewardsList.scss";
 
 export default function RewardsList({
@@ -16,7 +17,9 @@ export default function RewardsList({
     <div>
       <ul className="rewards-list">
         {filteredRewards.map((reward) => (
-          <li key={reward.id}></li>
+          <li key={reward.id}>
+            <RewardCard reward={reward} />
+          </li>
         ))}
       </ul>
     </div>
