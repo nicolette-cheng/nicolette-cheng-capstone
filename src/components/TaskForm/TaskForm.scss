@@ -1,0 +1,17 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.task-management {
+    display: flex;
+}
+
+.input-control {
+    border: 0.0625rem solid $light-grey; // Default border color
+    color: $black;
+
+    &.task-form__input-control--error {
+        border-color: $error-red; // Red border when there’s an error
+    }
+}
