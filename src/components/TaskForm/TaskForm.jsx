@@ -47,7 +47,7 @@ export default function TaskForm() {
           // if reward_id is missing, find it via reward_name instead
           let reward_id = taskItem.reward_id;
 
-          if (!reward_id && taskItem.reward_id) {
+          if (!reward_id && taskItem.reward_name) {
             const selectedReward = rewards.find(
               (reward) => reward.reward_name === taskItem.reward_name
             );
@@ -88,22 +88,23 @@ export default function TaskForm() {
   // handles field changes and removes error message on input
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (error[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
 
-    // if 'reward' field changes, find the reward_id by reward name
-    if (name === "reward") {
-      const selectedReward = rewards.find(
-        (reward) => reward.reward_name === value
-      );
-
-      // ensure reward_id is set correctly
+    if (name === "stars_required") {
       setFormData((prev) => ({
         ...prev,
-        reward_id: selectedReward ? selectedReward.id : "",
+        stars_required: isNaN(Number(value)) ? "" : Number(value),
       }));
+    } else if (name === "reward_id") {
+      setFormData((prev) => ({
+        ...prev,
+        reward_id: value,
+      }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+
+      if (errors[name]) {
+        setErrors((prev) => ({ ...prev, [name]: "" }));
+      }
     }
   };
 
@@ -116,11 +117,11 @@ export default function TaskForm() {
     if (!formData.description.trim()) {
       newErrors.description = "Description is required.";
     }
-    if (!formData.stars_required.trim()) {
+    if (isNaN(Number(formData.stars_required))) {
       newErrors.stars_required =
         "Stars count is required and must be a number.";
     }
-    if (!formData.reward.trim()) {
+    if (!formData.reward_id) {
       newErrors.reward = "Reward selection is required.";
     }
     setErrors(newErrors);
@@ -135,15 +136,24 @@ export default function TaskForm() {
       try {
         // create requestData with updated formData
         const requestData = {
-          ...formData,
+          task_name: formData.task_name.trim(),
+          description: formData.description.trim(),
+          stars_required: Number(formData.stars_required), // Ensure this is a number
           reward_id: formData.reward_id,
         };
 
         delete requestData.reward; // remove reward name from request data
 
+        console.log("Request Data Types:", {
+          task_name: typeof requestData.task_name,
+          description: typeof requestData.description,
+          stars_required: typeof requestData.stars_required,
+          reward_id: typeof requestData.reward_id,
+        });
+
         const response = isEditMode
           ? await axios.put(`${apiUrl}/tasks/${id}`, requestData)
-          : await axios.post(`${apiUrl}/tasks/`, requestData);
+          : await axios.post(`${apiUrl}/tasks`, requestData);
 
         if (response.status === 201 || response.status === 200) {
           setFormData({
@@ -161,9 +171,7 @@ export default function TaskForm() {
           }
         }
       } catch (error) {
-        console.error(
-          "Error connecting to the server, please try again later."
-        );
+        console.error("Full Error:", error);
       }
     }
   };
@@ -186,17 +194,17 @@ export default function TaskForm() {
           if (field.name === "reward") {
             inputElement = (
               <select
-                name={field.name}
-                id={field.name}
-                value={formData[field.name]}
+                name="reward_id"
+                id="reward_id"
+                value={formData.reward_id}
                 onChange={handleChange}
                 className={`input-control ${
                   errors[field.name] ? "task-form__input-control--error" : ""
                 }`}
               >
-                <option value="">Select {field.label}</option>
+                <option value="">Select reward associated</option>
                 {rewards.map((reward) => (
-                  <option value={reward.reward_name} key={reward.id}>
+                  <option value={reward.id} key={reward.id}>
                     {reward.reward_name}
                   </option>
                 ))}
@@ -251,6 +259,12 @@ export default function TaskForm() {
           );
         })}
       </section>
+      <div className="task-form__actions">
+        <Link className="task-form__button-link">cancel</Link>
+        <button type="submit" className="button">
+          {isEditMode ? "save" : "+ add task"}
+        </button>
+      </div>
     </form>
   );
 }
