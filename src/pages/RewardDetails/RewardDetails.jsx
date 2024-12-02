@@ -47,7 +47,10 @@ export default function RewardDetails() {
         />
       </div>
       <div className="reward-details__description">
-        <DetailsDescription
+        <DetailsDescription description={description} />
+      </div>
+      <div className="reward-details__specs">
+        <DetailsSpecs
           stars={stars_required}
           created={created_at}
           updated={updated_at}
