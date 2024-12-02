@@ -9,7 +9,7 @@ export default function DetailsSpecs({ stars, created, updated }) {
     <div className="details-specs">
       <h2 className="details-specs__wrapper-icon">
         {stars}
-        <img src={starIcon} alt="" className="details-specs__icon" />
+        <img src={starIcon} alt="stars icon" className="details-specs__icon" />
       </h2>
       <div className="details-specs__wrapper-timestamps">
         <p>created: {formattedCreatedDate}</p>
