@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import TaskCard from "../TaskCard/TaskCard";
 import "./TasksList.scss";
 
-export default function TasksList({ taskItems, generateTaskItems }) {
+export default function TasksList({ taskItems, generateTaskItems, search }) {
   const [filteredTasks, setFilteredTasks] = useState(taskItems);
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setFilteredTasks(taskItems);
