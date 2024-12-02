@@ -92,7 +92,7 @@ export default function TaskForm() {
     if (name === "stars_required") {
       setFormData((prev) => ({
         ...prev,
-        stars_required: isNaN(Number(value)) ? "" : Number(value),
+        stars_required: Number.isInteger(Number(value)) ? Number(value) : "",
       }));
     } else if (name === "reward_id") {
       setFormData((prev) => ({
