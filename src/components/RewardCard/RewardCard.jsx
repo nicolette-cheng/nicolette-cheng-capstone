@@ -6,7 +6,7 @@ import caretRightIcon from "/assets/icons/caret-double-right.svg";
 
 export default function RewardCard({ reward }) {
   return (
-    <Link to={`rewards/${reward.id}`}>
+    <Link to={`/rewards/${reward.id}`}>
       <div className="reward-card">
         <h3>{reward.reward_name}</h3>
         <div className="reward-card__stars-wrap">
