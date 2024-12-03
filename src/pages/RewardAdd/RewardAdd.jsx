@@ -1,5 +1,5 @@
 import RewardForm from "../../components/RewardForm/RewardForm";
 
-export default function TaskAdd() {
+export default function RewardAdd() {
   return <RewardForm />;
 }
