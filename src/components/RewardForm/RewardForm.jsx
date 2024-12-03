@@ -120,16 +120,98 @@ export default function RewardForm() {
           });
 
           if (isEditMode) {
-            navigate(`rewards/${id}`);
+            navigate(`/rewards/${id}`);
           } else {
             navigate("/rewards");
           }
         }
       } catch (error) {
         console.error("Full Error:", error);
+        setErrors({
+          submit: error.response?.data?.message || "Error creating reward",
+        });
+        {
+          errors.submit && <div className="reward-form__error-message">{errors.submit}</div>;
+        }
       }
     }
   };
 
-  return <div></div>;
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <legend>
+          <Link to={isEditMode ? `/rewards/${id}` : "/rewards"}>
+            <img src={backIcon} alt="arrow back icon" />
+          </Link>
+          <h1>{isEditMode ? "edit reward" : "add new reward"}</h1>
+        </legend>
+
+        <section>
+          <h2>reward details</h2>
+          {rewardFields.map((field) => {
+            let inputElement = null;
+
+            if (field.name === "description") {
+              inputElement = (
+                <textarea
+                  name={field.name}
+                  id={field.name}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  className={`input-control ${
+                    errors[field.name]
+                      ? "reward-form__input-control--error"
+                      : ""
+                  }`}
+                  placeholder={field.label}
+                />
+              );
+            } else {
+              inputElement = (
+                <input
+                  type={field.type || "text"}
+                  id={field.name}
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  className={`input-control ${
+                    errors[field.name]
+                      ? "reward-form__input-control--error"
+                      : ""
+                  }`}
+                  placeholder={field.label}
+                />
+              );
+            }
+
+            return (
+              <div className="reward-form__input-field" key={field.name}>
+                <label
+                  htmlFor={field.name}
+                  className="reward-form__input-label"
+                >
+                  {field.label}
+                </label>
+                {inputElement}
+                {""}
+                {errors[field.name] && (
+                  <span className="reward-form__error-msg">
+                    <OctagonAlertIcon />
+                    {errors[field.name]}
+                  </span>
+                )}
+              </div>
+            );
+          })}
+        </section>
+        <div className="reward-form__actions">
+          <Link to="/rewards">cancel</Link>
+          <button type="submit" className="button">
+            {isEditMode ? "save" : "+ add reward"}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }
