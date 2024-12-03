@@ -1,10 +1,10 @@
 import "./TaskCard.scss";
-import { Link, Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 import starIcon from "/assets/icons/shooting-star.svg";
 import caretRightIcon from "/assets/icons/caret-double-right.svg";
 
-export default function TaskCard({ task, generateTaskItem }) {
+export default function TaskCard({ task }) {
   return (
     <Link to={`/tasks/${task.id}`}>
       <div className="task-card">
