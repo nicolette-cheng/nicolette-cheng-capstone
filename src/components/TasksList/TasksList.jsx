@@ -13,7 +13,7 @@ export default function TasksList({ taskItems, generateTaskItems, search }) {
     <ul className="tasks-list">
       {filteredTasks.map((task) => (
         <li key={task.id}>
-          <TaskCard task={task} generateTaskItems={generateTaskItems} />
+          <TaskCard task={task} />
         </li>
       ))}
     </ul>
