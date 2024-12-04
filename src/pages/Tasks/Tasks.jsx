@@ -50,7 +50,6 @@ export default function Tasks() {
       <div>
         <TasksList
           taskItems={filteredTasks}
-          generateTaskItems={generateTaskItems}
           search={search}
         />
       </div>
