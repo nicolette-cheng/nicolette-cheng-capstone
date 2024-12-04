@@ -4,7 +4,6 @@ import "./RewardsList.scss";
 
 export default function RewardsList({
   rewardItems,
-  generatedRewardItems,
   search,
 }) {
   const [filteredRewards, setFilteredRewards] = useState(rewardItems);
@@ -14,14 +13,22 @@ export default function RewardsList({
   }, [search, rewardItems]);
 
   return (
-    <div>
-      <ul className="rewards-list">
-        {filteredRewards.map((reward) => (
-          <li key={reward.id}>
-            <RewardCard reward={reward} />
-          </li>
-        ))}
-      </ul>
+    <div
+      className="rewards-list__wrapper"
+      role="region"
+      aria-label="Rewards list"
+    >
+      {filteredRewards.length === 0 ? (
+        <p className="rewards-list__empty">No rewards found</p>
+      ) : (
+        <ul className="rewards-list" role="list">
+          {filteredRewards.map((reward) => (
+            <li key={reward.id} className="rewards-list__item">
+              <RewardCard reward={reward} />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
