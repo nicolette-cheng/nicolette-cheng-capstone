@@ -6,20 +6,29 @@ import caretRightIcon from "/assets/icons/caret-double-right.svg";
 
 export default function RewardCard({ reward }) {
   return (
-    <Link to={`/rewards/${reward.id}`}>
+    <Link
+      to={`/rewards/${reward.id}`}
+      className="reward-card__link"
+      aria-label={`View reward: ${reward.reward_name}, ${reward.stars_required} stars required`}
+    >
       <div className="reward-card">
-        <h3>{reward.reward_name}</h3>
-        <div className="reward-card__stars-wrap">
+        <h2 className="reward-card__title">{reward.reward_name}</h2>
+        <div
+          className="reward-card__stars-wrap"
+          aria-label={`${reward.stars_required} stars required`}
+        >
           <img
             src={starIcon}
-            alt="star icon"
+            alt=""
+            aria-hidden="true"
             className="reward-card__icon-stars"
           />
-          <p>{reward.stars_required}</p>
+          <p className="reward-card__stars-count">{reward.stars_required}</p>
         </div>
         <img
           src={caretRightIcon}
-          alt="arrow pointing right icon"
+          alt=""
+          aria-hidden="true"
           className="reward-card__icon-caret"
         />
       </div>
