@@ -2,3 +2,102 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
+
+.reward-card {
+    display: grid;
+    grid-template-columns: 8fr 1fr 1fr;
+    background: $pink;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  
+    &__link {
+      text-decoration: none;
+      color: $black;
+      outline: none;
+  
+      &:focus-visible {
+        .reward-card {
+          box-shadow: 0 0 0 2px $blue;
+        }
+      }
+  
+      &:hover .reward-card {
+        background: $light-grey;
+      }
+    }
+  
+    &__title {
+      font-size: 1.25rem;
+      margin: 0;
+      padding: 0.5rem 0;
+      color: $white;
+    }
+  
+    &__stars-wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    &__stars-count {
+      font-size: 1.25rem;
+      margin: 0;
+      color: $white;
+    }
+  
+    &__icon-stars {
+      width: 2rem;
+      height: 2rem;
+      transition: all 0.3s ease;
+      filter: $white-filter;
+    }
+  
+    &__icon-caret {
+      width: 1.5rem;
+      height: 1.5rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+      justify-self: flex-end;
+      align-self: center;
+  
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+  
+    &:hover {
+      .reward-card__icon-stars {
+        filter: $star-hover;
+      }
+  
+      .reward-card__icon-caret {
+        opacity: 1;
+        filter: $caret-hover;
+      }
+  
+      .reward-card__title {
+        color: $pink;
+      }
+      
+      .reward-card__stars-count {
+        color: $pink;
+      }
+    }
+  
+    // @media (max-width: $tablet-breakpoint) {
+    //   grid-template-columns: 7fr 2fr 1fr;
+    // }
+  
+    // @media (prefers-color-scheme: dark) {
+    //   background: darken($light-grey, 10%);
+    //   color: $white;
+  
+    //   &__title,
+    //   &__stars-count {
+    //     color: $white;
+    //   }
+    // }
+  }
