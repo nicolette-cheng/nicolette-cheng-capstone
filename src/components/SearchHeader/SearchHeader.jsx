@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./SearchHeader.scss";
-import { Plus } from "lucide-react";
 
 export default function SearchHeader({ title, handleSearchInput, buttonLink }) {
   return (
@@ -13,8 +12,7 @@ export default function SearchHeader({ title, handleSearchInput, buttonLink }) {
           onChange={handleSearchInput}
         />
         <Link to={buttonLink} className="search-header__button">
-          <Plus />
-          <h3>add new</h3>
+          <h3>+ add new</h3>
         </Link>
       </div>
     </div>
