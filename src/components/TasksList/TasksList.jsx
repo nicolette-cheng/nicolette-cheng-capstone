@@ -14,9 +14,9 @@ export default function TasksList({ taskItems, search }) {
       {filteredTasks.length === 0 ? (
         <p className="tasks-list__empty">No tasks found</p>
       ) : (
-        <ul className="tasks-list">
+        <ul className="tasks-list" role="list">
           {filteredTasks.map((task) => (
-            <li key={task.id}>
+            <li key={task.id} className="tasks-list__item">
               <TaskCard task={task} />
             </li>
           ))}
