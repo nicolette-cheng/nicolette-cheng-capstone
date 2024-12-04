@@ -5,15 +5,55 @@
 
 .search-header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+  border-right: solid .125rem $mint;
+  padding-right: 1.5rem;
 
   &__wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1.5rem;
+  }
+
+  input {
+    padding: 0.75rem;
+    border: 1px solid $khaki;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $green;
+      box-shadow: 0 0 0 2px rgba($mint, 0.2);
+    }
+
+    &::placeholder {
+      color: rgba($black, 0.5);
+    }
   }
 
   &__button {
-    display: flex;
-    flex-direction: row;
+    padding: 0.75rem 1.5rem;
+    background-color: $mint;
+    color: $white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 8rem;
+    align-self: flex-end;
+
+    &:hover {
+      background-color: $mint-hover;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
   }
 }
