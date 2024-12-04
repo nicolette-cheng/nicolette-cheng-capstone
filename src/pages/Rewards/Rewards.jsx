@@ -11,6 +11,7 @@ export default function Rewards() {
   const [rewardItems, setRewardItems] = useState([]);
   const [filteredRewards, setFilteredRewards] = useState(rewardItems);
   const [search, setSearch] = useState("");
+
   useEffect(() => {
     generateRewardItems();
   }, []);
@@ -35,27 +36,19 @@ export default function Rewards() {
         item.reward_name.toLowerCase().includes(searchValue) ||
         item.description.toLowerCase().includes(searchValue)
     );
-    setFilteredTasks(filtered);
+    setFilteredRewards(filtered);
   };
 
   return (
-    <div>
-      <main className="rewards">
-        <div className="rewards__header-container">
-          <SearchHeader
-            title="rewards"
-            handleSearchInput={handleSearchInput}
-            buttonLink="/rewards/add"
-          />
-        </div>
-        <div>
-          <RewardsList
-            rewardItems={filteredRewards}
-            generateRewardItems={generateRewardItems}
-            search={search}
-          />
-        </div>
-      </main>
-    </div>
+    <main className="rewards">
+      <SearchHeader
+        title="rewards"
+        handleSearchInput={handleSearchInput}
+        buttonLink="/rewards/add"
+      />
+      <div>
+        <RewardsList rewardItems={filteredRewards} search={search} />
+      </div>
+    </main>
   );
 }
