@@ -2,7 +2,7 @@ $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
 
 // Primary Colours
-$black: #414A4C;
+$black: #414a4c;
 $green: #49796b;
 $khaki: #c5afa0;
 $brown: #9f8170;
@@ -15,8 +15,14 @@ $blue: #6082b6;
 // Hover Colours
 $mint-hover: #bdcfab;
 $pink-hover: #c19b96;
+
+// Filter Colours
 $star-hover: invert(86%) sepia(17%) saturate(343%) hue-rotate(340deg)
   brightness(83%) contrast(82%);
+$caret-hover: invert(87%) sepia(28%) saturate(210%) hue-rotate(47deg)
+  brightness(90%) contrast(88%);
+$white-filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(315deg)
+  brightness(103%) contrast(102%);
 
 // Background Colours
 $white: #fff;
