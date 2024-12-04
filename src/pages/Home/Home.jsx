@@ -5,6 +5,7 @@ import addIcon from "/assets/icons/add.svg";
 import rewardIcon from "/assets/icons/trophy.svg";
 import progressIcon from "/assets/icons/progress.svg";
 import glimmerIcon from "/assets/icons/sparkle.svg";
+import inspoImg from "/assets/images/inspiration.svg";
 
 export default function Home() {
   const today = new Date();
@@ -19,6 +20,7 @@ export default function Home() {
   const addTaskDes = "break down your goals";
   const viewRewardsDes = "stay motivated";
   const trackProgDes = "see your achievements";
+  const logGlimmer = "log today's glimmer";
 
   return (
     <div className="home">
@@ -47,15 +49,24 @@ export default function Home() {
         <QuickActionCard
           title="daily glimmer"
           icon={glimmerIcon}
-          description={trackProgDes}
+          description={logGlimmer}
           action={() => navigate("/glimmers")}
           className="quick-actions__card"
         />
       </main>
-      <div className="home-headers__wrap">
-        <h2>today is</h2>
-        <h1 className="home__header">{formattedDate}</h1>
-        <h3>it's a good day to believe in yourself, how would you like to start?</h3>
+      <div className="home__wrap">
+        <div className="home-headings__wrap">
+          <h2>today is</h2>
+          <h1 className="home__header">{formattedDate}</h1>
+          <h3>
+            it's a good day to believe in yourself, how would you like to start?
+          </h3>
+        </div>
+        <img
+          src={inspoImg}
+          alt="inspiration illustration"
+          className="home__img"
+        />
       </div>
     </div>
   );
