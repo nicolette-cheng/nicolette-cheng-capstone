@@ -185,6 +185,7 @@ export default function TaskForm() {
           </Link>
           <h1>{isEditMode ? "edit task" : "add new task"}</h1>
         </legend>
+        <div className="task-form__input-wrap">
         <section>
           <h2>task details</h2>
           {taskFields.map((field) => {
@@ -259,12 +260,13 @@ export default function TaskForm() {
             );
           })}
         </section>
-      </div>
-      <div className="task-form__actions">
-        <Link className="task-form__button-link">cancel</Link>
-        <button type="submit" className="button">
-          {isEditMode ? "save" : "+ add task"}
-        </button>
+        <div className="task-form__actions">
+          <Link className="task-form__button-link"><h3>cancel</h3></Link>
+          <button type="submit" className="button">
+            {isEditMode ? "save" : "+ add task"}
+          </button>
+        </div>
+        </div>
       </div>
     </form>
   );
