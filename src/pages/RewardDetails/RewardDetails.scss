@@ -2,3 +2,35 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
+
+.reward-details {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  padding: 2rem 22rem;
+
+  &__header {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    border-bottom: 0.1875rem solid $mint;
+    margin: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  &__description {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: baseline;
+    padding-top: 1rem;
+  }
+
+  &__specs {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    border-left: .1875rem solid $mint;
+    padding: 1rem 0 0 1.5rem;
+    margin: 0;
+  }
+}
