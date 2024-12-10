@@ -40,13 +40,11 @@ export default function Tasks() {
 
   return (
     <main className="tasks">
-      <div className="tasks__header-container">
         <SearchHeader
           title="tasks"
           handleSearchInput={handleSearchInput}
           buttonLink="/tasks/add"
         />
-      </div>
       <div>
         <TasksList
           taskItems={filteredTasks}
