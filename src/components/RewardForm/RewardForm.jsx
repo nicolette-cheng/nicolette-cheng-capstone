@@ -8,22 +8,18 @@ import { OctagonAlertIcon } from "lucide-react";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function RewardForm() {
-  // isEditMode variable to define if id parameter is present for add vs edit mode
   const { id } = useParams();
   const isEditMode = Boolean(id);
-
-  // redirect user to rewards list after submission
   const navigate = useNavigate();
 
-  // form data state
   const [formData, setFormData] = useState({
     reward_name: "",
     description: "",
     stars_required: "",
-    reward_id: "",
   });
 
-  // fields for task item details
+  const [errors, setErrors] = useState({});
+
   const rewardFields = [
     { label: "reward name", name: "reward_name" },
     { label: "description", name: "description" },
@@ -36,8 +32,6 @@ export default function RewardForm() {
         .get(`${apiUrl}/rewards/${id}`)
         .then((response) => {
           const rewardItem = response.data;
-
-          // prepopuldate form data w/existing task details
           setFormData({
             reward_name: rewardItem.reward_name,
             description: rewardItem.description,
@@ -50,11 +44,8 @@ export default function RewardForm() {
           }
         });
     }
-  }, [isEditMode, id]);
+  }, [isEditMode, id, navigate]);
 
-  const [errors, setErrors] = useState({});
-
-  // handles field changes and removes error message on input
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -65,14 +56,13 @@ export default function RewardForm() {
       }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
+    }
 
-      if (errors[name]) {
-        setErrors((prev) => ({ ...prev, [name]: "" }));
-      }
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
-  // validates form fields
   const validateFields = () => {
     const newErrors = {};
     if (!formData.reward_name.trim()) {
@@ -81,64 +71,42 @@ export default function RewardForm() {
     if (!formData.description.trim()) {
       newErrors.description = "Description is required.";
     }
-    if (isNaN(Number(formData.stars_required))) {
-      newErrors.stars_required =
-        "Stars count is required and must be a number.";
+    if (!Number.isInteger(Number(formData.stars_required))) {
+      newErrors.stars_required = "Stars count is required and must be a number.";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  // handles form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateFields()) {
       try {
-        // create requestData with updated formData
         const requestData = {
           reward_name: formData.reward_name.trim(),
           description: formData.description.trim(),
-          stars_required: Number(formData.stars_required), // Ensure this is a number
+          stars_required: Number(formData.stars_required),
         };
-
-        console.log("Request Data Types:", {
-          task_name: typeof requestData.reward_name,
-          description: typeof requestData.description,
-          stars_required: typeof requestData.stars_required,
-        });
 
         const response = isEditMode
           ? await axios.put(`${apiUrl}/rewards/${id}`, requestData)
           : await axios.post(`${apiUrl}/rewards`, requestData);
 
         if (response.status === 201 || response.status === 200) {
-          setFormData({
-            reward_name: "",
-            description: "",
-            stars_required: "",
-          });
-
-          if (isEditMode) {
-            navigate(`/rewards/${id}`);
-          } else {
-            navigate("/rewards");
-          }
+          navigate(isEditMode ? `/rewards/${id}` : "/rewards");
         }
       } catch (error) {
-        console.error("Full Error:", error);
+        console.error("Error:", error);
         setErrors({
-          submit: error.response?.data?.message || "Error creating reward",
+          submit: error.response?.data?.message || "Error saving reward",
         });
-        {
-          errors.submit && <div className="reward-form__error-message">{errors.submit}</div>;
-        }
       }
     }
   };
 
   return (
-    <div>
+    <div className="reward-form">
       <form onSubmit={handleSubmit}>
         <legend>
           <Link to={isEditMode ? `/rewards/${id}` : "/rewards"}>
@@ -160,9 +128,7 @@ export default function RewardForm() {
                   value={formData[field.name]}
                   onChange={handleChange}
                   className={`input-control ${
-                    errors[field.name]
-                      ? "reward-form__input-control--error"
-                      : ""
+                    errors[field.name] ? "reward-form__input-control--error" : ""
                   }`}
                   placeholder={field.label}
                 />
@@ -176,9 +142,7 @@ export default function RewardForm() {
                   value={formData[field.name]}
                   onChange={handleChange}
                   className={`input-control ${
-                    errors[field.name]
-                      ? "reward-form__input-control--error"
-                      : ""
+                    errors[field.name] ? "reward-form__input-control--error" : ""
                   }`}
                   placeholder={field.label}
                 />
@@ -187,14 +151,10 @@ export default function RewardForm() {
 
             return (
               <div className="reward-form__input-field" key={field.name}>
-                <label
-                  htmlFor={field.name}
-                  className="reward-form__input-label"
-                >
+                <label htmlFor={field.name} className="reward-form__input-label">
                   {field.label}
                 </label>
                 {inputElement}
-                {""}
                 {errors[field.name] && (
                   <span className="reward-form__error-msg">
                     <OctagonAlertIcon />
@@ -204,9 +164,14 @@ export default function RewardForm() {
               </div>
             );
           })}
+          {errors.submit && (
+            <div className="reward-form__error-message">{errors.submit}</div>
+          )}
         </section>
         <div className="reward-form__actions">
-          <Link to="/rewards">cancel</Link>
+          <Link to="/rewards" className="reward-form__button-link">
+            cancel
+          </Link>
           <button type="submit" className="button">
             {isEditMode ? "save" : "+ add reward"}
           </button>
