@@ -72,7 +72,8 @@ export default function RewardForm() {
       newErrors.description = "Description is required.";
     }
     if (!Number.isInteger(Number(formData.stars_required))) {
-      newErrors.stars_required = "Stars count is required and must be a number.";
+      newErrors.stars_required =
+        "Stars count is required and must be a number.";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -106,77 +107,85 @@ export default function RewardForm() {
   };
 
   return (
-    <div className="reward-form">
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="reward-form">
+      <div className="reward-form__content-wrap">
         <legend>
           <Link to={isEditMode ? `/rewards/${id}` : "/rewards"}>
             <img src={backIcon} alt="arrow back icon" />
           </Link>
           <h1>{isEditMode ? "edit reward" : "add new reward"}</h1>
         </legend>
+        <div className="reward-form__input-wrap">
+          <section>
+            <h2>reward details</h2>
+            {rewardFields.map((field) => {
+              let inputElement = null;
 
-        <section>
-          <h2>reward details</h2>
-          {rewardFields.map((field) => {
-            let inputElement = null;
+              if (field.name === "description") {
+                inputElement = (
+                  <textarea
+                    name={field.name}
+                    id={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    className={`input-control ${
+                      errors[field.name]
+                        ? "reward-form__input-control--error"
+                        : ""
+                    }`}
+                    placeholder={field.label}
+                  />
+                );
+              } else {
+                inputElement = (
+                  <input
+                    type={field.type || "text"}
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    className={`input-control ${
+                      errors[field.name]
+                        ? "reward-form__input-control--error"
+                        : ""
+                    }`}
+                    placeholder={field.label}
+                  />
+                );
+              }
 
-            if (field.name === "description") {
-              inputElement = (
-                <textarea
-                  name={field.name}
-                  id={field.name}
-                  value={formData[field.name]}
-                  onChange={handleChange}
-                  className={`input-control ${
-                    errors[field.name] ? "reward-form__input-control--error" : ""
-                  }`}
-                  placeholder={field.label}
-                />
+              return (
+                <div className="reward-form__input-field" key={field.name}>
+                  <label
+                    htmlFor={field.name}
+                    className="reward-form__input-label"
+                  >
+                    {field.label}
+                  </label>
+                  {inputElement}
+                  {errors[field.name] && (
+                    <span className="reward-form__error-msg">
+                      <OctagonAlertIcon />
+                      {errors[field.name]}
+                    </span>
+                  )}
+                </div>
               );
-            } else {
-              inputElement = (
-                <input
-                  type={field.type || "text"}
-                  id={field.name}
-                  name={field.name}
-                  value={formData[field.name]}
-                  onChange={handleChange}
-                  className={`input-control ${
-                    errors[field.name] ? "reward-form__input-control--error" : ""
-                  }`}
-                  placeholder={field.label}
-                />
-              );
-            }
-
-            return (
-              <div className="reward-form__input-field" key={field.name}>
-                <label htmlFor={field.name} className="reward-form__input-label">
-                  {field.label}
-                </label>
-                {inputElement}
-                {errors[field.name] && (
-                  <span className="reward-form__error-msg">
-                    <OctagonAlertIcon />
-                    {errors[field.name]}
-                  </span>
-                )}
-              </div>
-            );
-          })}
-          {errors.submit && (
-            <div className="reward-form__error-message">{errors.submit}</div>
-          )}
-        </section>
-        <div className="reward-form__actions">
-          <Link to="/rewards" className="reward-form__button-link">
-            cancel
-          </Link>
-          <button type="submit" className="button">
-            {isEditMode ? "save" : "+ add reward"}
-          </button>
+            })}
+            {errors.submit && (
+              <div className="reward-form__error-message">{errors.submit}</div>
+            )}
+          </section>
+          <div className="reward-form__actions">
+            <Link to="/rewards" className="reward-form__button-link">
+              cancel
+            </Link>
+            <button type="submit" className="button">
+              {isEditMode ? "save" : "+ add reward"}
+            </button>
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }
