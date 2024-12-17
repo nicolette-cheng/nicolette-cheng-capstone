@@ -43,7 +43,7 @@ export default function RewardDetails() {
         <DetailsHeader
           title={reward_name}
           pathBack="/rewards"
-          pathEdit={`/reward/${id}`}
+          pathEdit={`/rewards/${id}/edit`}
         />
       </div>
       <div className="reward-details__description">

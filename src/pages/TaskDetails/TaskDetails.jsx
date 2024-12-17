@@ -44,7 +44,7 @@ export default function TaskDetails() {
         <DetailsHeader
           title={task_name}
           pathBack="/tasks"
-          pathEdit={`/task/${id}`}
+          pathEdit={`/tasks/${id}/edit`}
           // pathDelete={``}
         />
       </div>
