@@ -9,6 +9,7 @@ import Rewards from "./pages/Rewards/Rewards.jsx";
 import RewardDetails from "./pages/RewardDetails/RewardDetails.jsx";
 import RewardAdd from "./pages/RewardAdd/RewardAdd.jsx";
 import RewardEdit from "./pages/RewardEdit/RewardEdit.jsx";
+import Glimmers from "./pages/Glimmers/Glimmers.jsx";
 import React from "react";
 import "./App.scss";
 
@@ -27,7 +28,7 @@ function App() {
           <Route path="/rewards/:id" element={<RewardDetails />} />
           <Route path="/rewards/add" element={<RewardAdd />} />
           <Route path="/rewards/:id/edit" element={<RewardEdit />} />
-          {/* <Route path="/glimmers" element={<Glimmers />} /> */}
+          <Route path="/glimmers" element={<Glimmers />} />
           {/* <Route path="/glimmers/add" element={<GlimmerAdd />} /> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
