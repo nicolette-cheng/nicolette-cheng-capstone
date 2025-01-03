@@ -127,5 +127,32 @@ export default function GlimmerForm() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (validateFields()) {
+      try {
+        const requestData = {
+          created_at: formData.created_at,
+          entry: formData.entry.trim(),
+          stars_earns: 1,
+        };
+
+        const response = isEditMode
+          ? await axios.put(`${apiUrl}/glimmers/${id}`, requestData)
+          : await axios.post(`${apiUrl}/glimmers`, requestData);
+
+        if (response.status === 201 || response.status === 200) {
+          navigate(isEditMode ? `/glimmers/${id}` : "/glimmers");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        setErrors({
+          submit: error.response?.data?.message || "Error saving glimmer",
+        });
+      }
+    }
+  };
+
   return <></>;
 }
