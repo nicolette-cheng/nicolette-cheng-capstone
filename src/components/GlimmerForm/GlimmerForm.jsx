@@ -154,5 +154,87 @@ export default function GlimmerForm() {
     }
   };
 
-  return <></>;
+  return (
+    <form onSubmit={handleSubmit} className="glimmer-form">
+      <div className="glimmer-form__content-wrap">
+        <legend>
+          <Link to={isEditMode ? `/glimmers/${id}` : "/glimmers"}>
+            <img src={backIcon} alt="arrow back icon" />
+          </Link>
+          <h1>{isEditMode ? "edit glimmer" : "add new glimmer"}</h1>
+        </legend>
+        <div className="glimmer-form__input-wrap">
+          <section>
+            <h2>glimmer details</h2>
+            {glimmerFields.map((field) => {
+              let inputElement = null;
+
+              if (field.name === "entry") {
+                inputElement = (
+                  <textarea
+                    name={field.name}
+                    id={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    className={`input-control ${
+                      errors[field.name]
+                        ? "glimmer-form__input-control--error"
+                        : ""
+                    }`}
+                    placeholder="A moment that sparked joy..."
+                  />
+                );
+              } else {
+                inputElement = (
+                  <input
+                    type={field.type || "text"}
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    min={field.min}
+                    max={field.max}
+                    className={`input-control ${
+                      errors[field.name]
+                        ? "glimmer-form__input-control--error"
+                        : ""
+                    }`}
+                  />
+                );
+              }
+
+              return (
+                <div className="glimmer-form__input-field" key={field.name}>
+                  <label
+                    htmlFor={field.name}
+                    className="glimmer-form__input-label"
+                  >
+                    {field.label}
+                  </label>
+                  {inputElement}
+                  {errors[field.name] && (
+                    <span className="glimmer-form__error-msg">
+                      <OctagonAlertIcon />
+                      {errors[field.name]}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+            {errors.submit && (
+              <div className="glimmer-form__error-message">{errors.submit}</div>
+            )}
+          </section>
+          <div className="glimmer-form__actions">
+            <Link to="/glimmers" className="glimmer-form__button-link">
+              cancel
+            </Link>
+            <button type="submit" className="button">
+              {isEditMode ? "save" : "+ add glimmer"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  );
 }
