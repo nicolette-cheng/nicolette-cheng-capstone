@@ -39,7 +39,7 @@ export default function Glimmers() {
     }
 
     const filtered = glimmerItems.filter((glimmer) => {
-      const glimmerDate = new Date(glimmer.created_at).getTime();
+      const glimmerDate = new Date(glimmer.entry_date).getTime();
       const start = dateRange.startDate
         ? new Date(dateRange.startDate).getTime()
         : 0;
