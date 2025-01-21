@@ -56,7 +56,7 @@ export default function GlimmerForm() {
       try {
         const response = await axios.get(`${apiUrl}/glimmers`);
         const dates = response.data.map((glimmer) =>
-          formatDate(new Date(glimmer.created_at))
+          formatDate(new Date(glimmer.entry_date))
         );
         setExistingDates(dates);
       } catch (error) {
@@ -118,7 +118,10 @@ export default function GlimmerForm() {
 
       // Check if entry already exists for selected date
       // Skip this check if we're in edit mode and it's the same date
-      if (!isEditMode && existingDates.includes(selectedDate)) {
+      if (
+        !isEditMode &&
+        existingDates.includes(formatDate(new Date(formData.created_at)))
+      ) {
         newErrors.created_at = "An entry already exists for this date.";
       }
     }
@@ -129,19 +132,19 @@ export default function GlimmerForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (validateFields()) {
       try {
         const requestData = {
-          created_at: formData.created_at,
-          entry: formData.entry.trim(),
-          stars_earns: 1,
+          entry_date: formData.created_at,  // Make sure this matches your DB column name
+          entry: formData.entry.trim()
+          // Remove stars_earned from here since it's handled in backend
         };
-
+  
         const response = isEditMode
           ? await axios.put(`${apiUrl}/glimmers/${id}`, requestData)
           : await axios.post(`${apiUrl}/glimmers`, requestData);
-
+  
         if (response.status === 201 || response.status === 200) {
           navigate(isEditMode ? `/glimmers/${id}` : "/glimmers");
         }
