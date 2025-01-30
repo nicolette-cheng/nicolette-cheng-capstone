@@ -39,7 +39,7 @@ export default function Glimmers() {
     }
 
     const filtered = glimmerItems.filter((glimmer) => {
-      const glimmerDate = new Date(glimmer.entry_date).getTime();
+      const glimmerDate = new Date(glimmer.created_at).getTime();
       const start = dateRange.startDate
         ? new Date(dateRange.startDate).getTime()
         : 0;
@@ -90,7 +90,7 @@ export default function Glimmers() {
         {filteredGlimmers.map((glimmer) => (
           <div key={glimmer.id} className="glimmers__item">
             <div className="glimmers__date">
-              {formatDate(glimmer.entry_date)}
+              {formatDate(glimmer.created_at)}
             </div>
             <div className="glimmers__entry">{glimmer.entry}</div>
           </div>
