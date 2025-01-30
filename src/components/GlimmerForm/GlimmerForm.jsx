@@ -56,7 +56,7 @@ export default function GlimmerForm() {
       try {
         const response = await axios.get(`${apiUrl}/glimmers`);
         const dates = response.data.map((glimmer) =>
-          formatDate(new Date(glimmer.entry_date))
+          formatDate(new Date(glimmer.created_at))
         );
         setExistingDates(dates);
       } catch (error) {
@@ -132,19 +132,18 @@ export default function GlimmerForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (validateFields()) {
       try {
         const requestData = {
-          entry_date: formData.created_at,  // Make sure this matches your DB column name
-          entry: formData.entry.trim()
-          // Remove stars_earned from here since it's handled in backend
+          created_at: formData.created_at, // Changed from entry_date to created_at
+          entry: formData.entry.trim(),
         };
-  
+
         const response = isEditMode
           ? await axios.put(`${apiUrl}/glimmers/${id}`, requestData)
           : await axios.post(`${apiUrl}/glimmers`, requestData);
-  
+
         if (response.status === 201 || response.status === 200) {
           navigate(isEditMode ? `/glimmers/${id}` : "/glimmers");
         }
