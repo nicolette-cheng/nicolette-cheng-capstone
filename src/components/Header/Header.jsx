@@ -14,6 +14,7 @@ export default function Header() {
           <NavLink to="/about" className="nav__navlink">about</NavLink>
           <NavLink to="/tasks" className="nav__navlink">tasks</NavLink>
           <NavLink to="/rewards" className="nav__navlink">rewards</NavLink>
+          <NavLink to="/glimmers" className="nav__navlink">glimmers</NavLink>
         </div>
         <div className="nav__img-user"></div>
       </nav>
