@@ -1,4 +1,5 @@
 import "./Glimmers.scss";
+import { Link } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 import axios from "axios";
@@ -85,6 +86,8 @@ export default function Glimmers() {
           className="glimmers__date-input"
         />
       </div>
+
+<Link to="/glimmers/add" >+add glimmer</Link>
 
       <div className="glimmers__list">
         {filteredGlimmers.map((glimmer) => (
