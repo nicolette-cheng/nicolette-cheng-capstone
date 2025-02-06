@@ -87,7 +87,7 @@ export default function Glimmers() {
         />
       </div>
 
-<Link to="/glimmers/add" >+add glimmer</Link>
+<Link to="/glimmers/add" class="glimmers__button">+add glimmer</Link>
 
       <div className="glimmers__list">
         {filteredGlimmers.map((glimmer) => (
