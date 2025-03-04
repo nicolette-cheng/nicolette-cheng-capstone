@@ -59,7 +59,10 @@ export default function Glimmers() {
   }, [dateRange, glimmerItems]);
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
+    const dateStructure = dateString.split("T")[0];
+    const [year, month, day] = dateStructure.split("-").map(Number);
+
+    const date = new Date(year, month - 1, day);
     return date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
@@ -87,7 +90,9 @@ export default function Glimmers() {
         />
       </div>
 
-<Link to="/glimmers/add" class="glimmers__button">+add glimmer</Link>
+      <Link to="/glimmers/add" className="glimmers__button">
+        +add glimmer
+      </Link>
 
       <div className="glimmers__list">
         {filteredGlimmers.map((glimmer) => (
